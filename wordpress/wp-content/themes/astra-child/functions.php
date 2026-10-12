@@ -119,6 +119,77 @@ add_action(
 
 			startAuto();
 		});
+
+		/* ---- Professional Navbar Toggle ---- */
+		document.addEventListener('DOMContentLoaded', function () {
+			var navToggle = document.getElementById('diNavToggle');
+			var mobileNav = document.getElementById('diMobileNav');
+			var navClose  = document.getElementById('diNavClose');
+			var backdrop  = document.getElementById('diNavBackdrop');
+			var header    = document.getElementById('masthead');
+
+			function openMobileNav() {
+				if (!mobileNav) return;
+				mobileNav.classList.add('is-open');
+				if (navToggle) {
+					navToggle.classList.add('is-active');
+					navToggle.setAttribute('aria-expanded', 'true');
+				}
+				mobileNav.setAttribute('aria-hidden', 'false');
+				document.body.classList.add('di-nav-locked');
+			}
+
+			function closeMobileNav() {
+				if (!mobileNav) return;
+				mobileNav.classList.remove('is-open');
+				if (navToggle) {
+					navToggle.classList.remove('is-active');
+					navToggle.setAttribute('aria-expanded', 'false');
+				}
+				mobileNav.setAttribute('aria-hidden', 'true');
+				document.body.classList.remove('di-nav-locked');
+			}
+
+			if (navToggle) {
+				navToggle.addEventListener('click', function (e) {
+					e.stopPropagation();
+					if (mobileNav && mobileNav.classList.contains('is-open')) {
+						closeMobileNav();
+					} else {
+						openMobileNav();
+					}
+				});
+			}
+
+			if (navClose) navClose.addEventListener('click', closeMobileNav);
+			if (backdrop) backdrop.addEventListener('click', closeMobileNav);
+
+			document.addEventListener('keydown', function (e) {
+				if (e.key === 'Escape' && mobileNav && mobileNav.classList.contains('is-open')) {
+					closeMobileNav();
+				}
+			});
+
+			if (mobileNav) {
+				var navLinks = mobileNav.querySelectorAll('.di-mobile-link, .di-mobile-btn');
+				navLinks.forEach(function (link) {
+					link.addEventListener('click', closeMobileNav);
+				});
+			}
+
+			/* Header scroll shadow */
+			if (header) {
+				var checkScroll = function () {
+					if (window.scrollY > 15) {
+						header.classList.add('is-scrolled');
+					} else {
+						header.classList.remove('is-scrolled');
+					}
+				};
+				checkScroll();
+				window.addEventListener('scroll', checkScroll, { passive: true });
+			}
+		});
 		</script>
 		<?php
 	},
