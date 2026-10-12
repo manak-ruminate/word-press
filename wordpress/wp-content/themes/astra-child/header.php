@@ -58,8 +58,31 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 					<li class="di-nav-item <?php echo is_page( 'about-us' ) ? 'is-active' : ''; ?>">
 						<a href="<?php echo esc_url( home_url( '/index.php/about-us/' ) ); ?>" class="di-nav-link">About Us</a>
 					</li>
-					<li class="di-nav-item <?php echo ( is_page( 'products' ) || is_page( array( 'facial-tissues', 'paper-napkins', 'toilet-rolls', 'paper-towels', 'kitchen-range', 'hospital-range' ) ) ) ? 'is-active' : ''; ?>">
-						<a href="<?php echo esc_url( home_url( '/index.php/products/' ) ); ?>" class="di-nav-link">Products</a>
+					<li class="di-nav-item di-nav-item--has-children <?php echo ( is_page( 'products' ) || is_page( array( 'facial-tissues', 'paper-napkins', 'toilet-rolls', 'paper-towels', 'kitchen-range', 'hospital-range' ) ) ) ? 'is-active' : ''; ?>">
+						<a href="<?php echo esc_url( home_url( '/index.php/products/' ) ); ?>" class="di-nav-link di-nav-link--dropdown">
+							<span>Products</span>
+							<svg class="di-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+						</a>
+						<ul class="di-dropdown-menu">
+							<li class="<?php echo is_page( 'facial-tissues' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/facial-tissues/' ) ); ?>">Facial Tissues</a>
+							</li>
+							<li class="<?php echo is_page( 'paper-napkins' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/paper-napkins/' ) ); ?>">Paper Napkins</a>
+							</li>
+							<li class="<?php echo is_page( 'paper-towels' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/paper-towels/' ) ); ?>">Paper Towels</a>
+							</li>
+							<li class="<?php echo is_page( 'toilet-rolls' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/toilet-rolls/' ) ); ?>">Toilet Rolls</a>
+							</li>
+							<li class="<?php echo is_page( 'kitchen-range' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/kitchen-range/' ) ); ?>">Kitchen Range</a>
+							</li>
+							<li class="<?php echo is_page( 'hospital-range' ) ? 'is-active' : ''; ?>">
+								<a href="<?php echo esc_url( home_url( '/index.php/hospital-range/' ) ); ?>">Hospital Range</a>
+							</li>
+						</ul>
 					</li>
 					<li class="di-nav-item <?php echo is_page( 'become-a-distributor' ) ? 'is-active' : ''; ?>">
 						<a href="<?php echo esc_url( home_url( '/index.php/become-a-distributor/' ) ); ?>" class="di-nav-link">Become a Distributor</a>
@@ -105,11 +128,23 @@ if ( apply_filters( 'astra_header_profile_gmpg_link', true ) ) {
 							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
 						</a>
 					</li>
-					<li class="di-mobile-item <?php echo ( is_page( 'products' ) || is_page( array( 'facial-tissues', 'paper-napkins', 'toilet-rolls', 'paper-towels', 'kitchen-range', 'hospital-range' ) ) ) ? 'is-active' : ''; ?>">
-						<a href="<?php echo esc_url( home_url( '/index.php/products/' ) ); ?>" class="di-mobile-link">
-							<span>Products</span>
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-						</a>
+					<li class="di-mobile-item di-mobile-item--has-children <?php echo ( is_page( 'products' ) || is_page( array( 'facial-tissues', 'paper-napkins', 'toilet-rolls', 'paper-towels', 'kitchen-range', 'hospital-range' ) ) ) ? 'is-active' : ''; ?>">
+						<div class="di-mobile-link-wrap">
+							<a href="<?php echo esc_url( home_url( '/index.php/products/' ) ); ?>" class="di-mobile-link">
+								<span>Products</span>
+							</a>
+							<button type="button" class="di-mobile-sub-toggle" id="diMobileProdToggle" aria-label="Toggle Products Submenu">
+								<svg class="di-sub-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+							</button>
+						</div>
+						<ul class="di-mobile-sub-menu" id="diMobileProdMenu">
+							<li><a href="<?php echo esc_url( home_url( '/index.php/facial-tissues/' ) ); ?>">&bull; Facial Tissues</a></li>
+							<li><a href="<?php echo esc_url( home_url( '/index.php/paper-napkins/' ) ); ?>">&bull; Paper Napkins</a></li>
+							<li><a href="<?php echo esc_url( home_url( '/index.php/paper-towels/' ) ); ?>">&bull; Paper Towels</a></li>
+							<li><a href="<?php echo esc_url( home_url( '/index.php/toilet-rolls/' ) ); ?>">&bull; Toilet Rolls</a></li>
+							<li><a href="<?php echo esc_url( home_url( '/index.php/kitchen-range/' ) ); ?>">&bull; Kitchen Range</a></li>
+							<li><a href="<?php echo esc_url( home_url( '/index.php/hospital-range/' ) ); ?>">&bull; Hospital Range</a></li>
+						</ul>
 					</li>
 					<li class="di-mobile-item <?php echo is_page( 'become-a-distributor' ) ? 'is-active' : ''; ?>">
 						<a href="<?php echo esc_url( home_url( '/index.php/become-a-distributor/' ) ); ?>" class="di-mobile-link">

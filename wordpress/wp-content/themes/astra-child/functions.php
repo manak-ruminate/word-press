@@ -171,10 +171,21 @@ add_action(
 			});
 
 			if (mobileNav) {
-				var navLinks = mobileNav.querySelectorAll('.di-mobile-link, .di-mobile-btn');
+				var navLinks = mobileNav.querySelectorAll('.di-mobile-link, .di-mobile-btn, .di-mobile-sub-menu a');
 				navLinks.forEach(function (link) {
 					link.addEventListener('click', closeMobileNav);
 				});
+
+				var prodToggle = document.getElementById('diMobileProdToggle');
+				var prodMenu   = document.getElementById('diMobileProdMenu');
+				if (prodToggle && prodMenu) {
+					prodToggle.addEventListener('click', function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+						prodMenu.classList.toggle('is-open');
+						prodToggle.classList.toggle('is-active');
+					});
+				}
 			}
 
 			/* Header scroll shadow */
